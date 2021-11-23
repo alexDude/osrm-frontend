@@ -29,6 +29,9 @@ var streets = L.tileLayer(mapboxTileURL, {
     id: 'mapbox/satellite-streets-v11',
     accessToken: mapboxToken
   }),
+  overv = L.tileLayer('http://localhost:8080/tile/{z}/{x}/{y}.png',{
+    attribution: osmAttribution,
+  }),
   osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: osmAttribution,
   }),
@@ -50,13 +53,14 @@ module.exports = {
     waypoints: [],
     language: 'en',
     alternative: 0,
-    layer: streets
+    layer: overv
   },
   services: [{
     label: 'Car (fastest)',
-    path: 'https://router.project-osrm.org/route/v1'
+    path: 'http://localhost:5000/route/v1'
   }],
   layer: [{
+    'Overv Tile Server': overv,
     'Mapbox Streets': streets,
     'Mapbox Outdoors': outdoors,
     'Mapbox Streets Satellite': satellite,
