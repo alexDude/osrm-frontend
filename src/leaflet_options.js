@@ -48,12 +48,13 @@ var streets = L.tileLayer(mapboxTileURL, {
 
 module.exports = {
   defaultState: {
-    center: L.latLng(38.8995,-77.0269),
+    center: L.latLng(46.78330, -92.10026),
     zoom: 13,
     waypoints: [],
     language: 'en',
     alternative: 0,
-    layer: overv
+    layer: overv,
+    units: 'imperial'   // TODO add options on page for unit switch
   },
   services: [{
     label: 'Car (fastest)',
